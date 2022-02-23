@@ -8,7 +8,7 @@ from PIL import Image
 import requests
 import os
 
-allowable_extensions = ['jpg','png','']
+allowable_extensions = ['jpg','png']
 
 # function to get the hex color from RGB color
 def rgb_to_hex(rgb_color):
