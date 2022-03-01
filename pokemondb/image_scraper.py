@@ -7,12 +7,13 @@ def get_pokemon_data(file_path = POKEMON_DATA_PATH):
     with open(file_path, "r") as f:
         return json.load(f)
 
-def download_image(poke_data):
+def download_image(key, poke_data):
     if not poke_data["sprites"]:
         return None
 
     url = poke_data["sprites"][0]
-    filename = "../img/" + url.split("/")[-1]
+    extension = url.split(".")[-1]
+    filename = f"../img/{key}.{extension}"
 
     response = requests.get(url, stream=True)
 
@@ -28,6 +29,6 @@ def download_pokemon_images():
     data = get_pokemon_data()
 
     for key in data:
-        download_image(data[key])
+        download_image(key, data[key])
 
 download_pokemon_images()
