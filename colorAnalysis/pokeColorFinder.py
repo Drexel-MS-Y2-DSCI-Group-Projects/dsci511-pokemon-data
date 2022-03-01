@@ -24,4 +24,4 @@ for file in os.listdir(img_directory):
         pass
 
 with open("../pokemondb/data/pokemon_data_colors.json", "w") as f:
-    json.dump(pokemon_data, f)
+    json.dump(pokemon_data, f, indent=4)
