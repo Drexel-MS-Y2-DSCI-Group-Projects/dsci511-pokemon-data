@@ -1,7 +1,6 @@
 import colorAnalyzer
 import json
 import os
-from pprint import pprint
 
 img_directory = "../img"
 
