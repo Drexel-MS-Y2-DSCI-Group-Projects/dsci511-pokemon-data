@@ -9,17 +9,17 @@ pokeapi_data = json.load(pokeapi_json_file)
 pokemondb_json_file = open('pokemondb\data\pokemon_data.json')
 pokemondb_data = json.load(pokemondb_json_file)
 
-num_pokemon = 899
+num_pokemon = 906
 merged = {}
 for i in range(1, num_pokemon):
     formatted_index = str(i).zfill(3)
     merged[formatted_index] = {
-        **pokeapi_data[formatted_index],
-        **pokemondb_data[formatted_index],
+        **pokeapi_data.get(formatted_index, {}),
+        **pokemondb_data.get(formatted_index, {}),
         'sprites': [
-            *bulbapedia_data[formatted_index]['sprites'],
-            *pokeapi_data[formatted_index]['sprites'],
-            *pokemondb_data[formatted_index]['sprites'],
+            *bulbapedia_data.get(formatted_index, {}).get('sprites', []),
+            *pokeapi_data.get(formatted_index, {}).get('sprites', []),
+            *pokemondb_data.get(formatted_index, {}).get('sprites', []),
         ]
     }
 
