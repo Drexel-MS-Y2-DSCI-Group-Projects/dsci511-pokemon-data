@@ -1,12 +1,8 @@
 from collections import Counter
 from sklearn.cluster import KMeans
-from matplotlib import colors
-import matplotlib.pyplot as plt
-import numpy as np
 import cv2
-from PIL import Image
+import numpy as np
 import requests
-import os
 
 allowable_extensions = ['jpg','png']
 
@@ -34,23 +30,34 @@ def color_analysis(img):
     hex_colors = [rgb_to_hex(ordered_colors[i]) for i in counts.keys()]
     return hex_colors
 
+
+
 # function to pull an image from URL, and analyze it for its hex colors
-def get_hex_codes_for_img(url):
-    image_title = url.split('/')[-1]
+def get_hex_codes_for_img(url=None, path=None):
+    if not url and not path:
+        return []
+
+    if url:
+        image_title = url.split('/')[-1]
+    else:
+        image_title = path.split('/')[-1]
+
     extension = image_title.split('.')[1].casefold()
     
-    if (extension in allowable_extensions):
-        img = Image.open(requests.get(url, stream=True).raw)
-        img.save(image_title) # saves image from URL
-
-        image = cv2.imread(image_title) # reads in the image from saved location
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # converts to RBG colors
-
-        modified_image = prep_image(image) # preps the image, resizing and reshaping
-        hex_colors = color_analysis(modified_image) # does the final colors analysis to get top 5 hex codes
-
-        os.remove(image_title) # delete the image from disk
-
-        return hex_colors # return the list of hex colors
-    else:
+    if not extension in allowable_extensions:
         return []
+
+    if url:
+        img = requests.get(url, stream=True).content
+    else:
+        img = open(path, "rb").read()
+
+    # Decode raw data to create a numpy array which cv2 understands
+    arr = np.asarray(bytearray(img), dtype=np.uint8)
+    img = cv2.imdecode(arr, -1)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # converts to RBG colors
+
+    modified_image = prep_image(img) # preps the image, resizing and reshaping
+    hex_colors = color_analysis(modified_image) # does the final colors analysis to get top 5 hex codes
+
+    return hex_colors # return the list of hex colors
