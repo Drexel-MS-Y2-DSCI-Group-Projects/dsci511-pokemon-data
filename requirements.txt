@@ -1,0 +1,4 @@
+opencv-python
+pandas
+beautifulsoup4
+lxml
