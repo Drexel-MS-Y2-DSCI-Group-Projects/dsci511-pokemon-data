@@ -23,6 +23,7 @@ For modifying image data during color parsing. We reshape scraped images and con
 For scraping all relevant data from each of our data sources.
 
 **lxml**
+This subdependency is required for the pandas read_html function to convert html tables into DataFrames.
 
 ### Standard library dependencies
 
