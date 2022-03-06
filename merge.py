@@ -3,7 +3,7 @@ import json
 bulbapedia_json_file = open('bulbapedia\data\output.json')
 bulbapedia_data = json.load(bulbapedia_json_file)
 
-pokeapi_json_file = open('pokeAPI\data\detailed_pokemon_species_FULL_v1.json')
+pokeapi_json_file = open('pokeAPI\data\detailed_pokemon_species_FULL_v2.json')
 pokeapi_data = json.load(pokeapi_json_file)
 
 pokemondb_json_file = open('pokemondb\data\pokemon_data.json')
