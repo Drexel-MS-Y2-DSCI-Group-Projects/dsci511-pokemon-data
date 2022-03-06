@@ -3,6 +3,9 @@ bulbapedia/bulbapedia.py
 pokeAPI/pokeAPI.py
 pokemondb/pokemondb_fetch.py
 
+# temp: top level data folder created for run.py
+data/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

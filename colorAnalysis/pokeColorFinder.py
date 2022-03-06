@@ -1,4 +1,4 @@
-import colorAnalyzer
+from . import colorAnalyzer
 import json
 import os
 

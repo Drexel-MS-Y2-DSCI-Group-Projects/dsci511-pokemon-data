@@ -32,6 +32,8 @@ async def main():
     end = timer()
     print(f'Finished pokemondb in {timedelta(seconds=end-start)}')
 
+    from colorAnalysis import pokeColorFinder
+
     # cleanup
     for py_file in ['./pokemondb/pokemondb_fetch.py', './bulbapedia/bulbapedia.py', './pokeAPI/pokeAPI.py']:
         if os.path.exists(py_file):
