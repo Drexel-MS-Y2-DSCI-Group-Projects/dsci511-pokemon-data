@@ -23,6 +23,7 @@ For modifying image data during color parsing. We reshape scraped images and con
 For scraping all relevant data from each of our data sources.
 
 **lxml**
+
 This subdependency is required for the pandas read_html function to convert html tables into DataFrames.
 
 ### Standard library dependencies
@@ -40,6 +41,7 @@ Capturing html from the web. Stringified HTML must be passed to BeautifulSoup.
 Timing the runner provides additional insight during runs for the data scraping process.
 
 **re**
+
 Regex helps parse tables during bulbapedia scraping only containing pokemon data.
 
 ## Data pipeline
@@ -55,9 +57,10 @@ PokeAPI, bulbapedia, and pokemondb data must be fetched before `merge.py` can be
 * Weight
 * Primary colors
 * Shape
+* Sprites (list of images)
 
 ## Querying the data
-After running `run.py`:
+Prerequisite: run `run.py`:
 
 ```.py
 from query import query
