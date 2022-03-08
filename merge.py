@@ -7,7 +7,7 @@ def run():
     pokeapi_json_file = open('pokeAPI\data\detailed_pokemon_species_FULL_v2.json')
     pokeapi_data = json.load(pokeapi_json_file)
 
-    pokemondb_json_file = open('pokemondb\data\pokemon_data.json')
+    pokemondb_json_file = open('pokemondb\data\pokemon_data_colors.json')
     pokemondb_data = json.load(pokemondb_json_file)
 
     num_pokemon = 906
