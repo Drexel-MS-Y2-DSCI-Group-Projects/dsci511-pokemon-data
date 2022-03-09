@@ -1,11 +1,11 @@
-import colorAnalyzer
+from . import colorAnalyzer
 import json
 import os
 
-img_directory = "../img"
+img_directory = os.environ.get('poke-img-prefix', '../img')
 
-
-with open("../pokemondb/data/pokemon_data.json", "r") as f:
+prefix = os.environ.get('poke-prefix', '../pokemondb/')
+with open(f"{prefix}data/pokemon_data.json", "r") as f:
     pokemon_data = json.load(f)
 
 for file in os.listdir(img_directory):
@@ -22,5 +22,5 @@ for file in os.listdir(img_directory):
     except KeyError:
         pass
 
-with open("../pokemondb/data/pokemon_data_colors.json", "w") as f:
+with open(f"{prefix}data/pokemon_data_colors.json", "w") as f:
     json.dump(pokemon_data, f, indent=4)
