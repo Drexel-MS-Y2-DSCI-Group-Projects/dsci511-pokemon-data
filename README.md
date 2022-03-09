@@ -1,5 +1,5 @@
 ## Pokemon Dataset
-dsci511-pokemon-data contains a data acquisition pipeline for fetching pyschical traits of pokemon from various data aggregation sources.
+dsci511-pokemon-data contains a data acquisition pipeline for fetching physical traits of pokemon from various data aggregation sources.
 
 ## Getting Started
 Prerequisite: Python 3
