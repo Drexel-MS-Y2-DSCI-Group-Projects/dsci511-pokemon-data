@@ -57,9 +57,9 @@ Regex helps parse tables during bulbapedia scraping only containing pokemon data
 Command line parser tool for simplifying the query input processing.
 
 ## Sources
-- PokeAPI
-- Bulbapedia
-- PokemonDB
+- [PokeAPI](https://pokeapi.co/docs/v2)
+- [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/List_of_Pok%C3%A9mon_by_National_Pok%C3%A9dex_number)
+- [PokemonDB](https://pokemondb.net/pokedex/all)
 
 ## Data pipeline
 PokeAPI, bulbapedia, and pokemondb data must be fetched before `merge.py` can be executed. The order largely does not matter for the pokemon data from the web.
