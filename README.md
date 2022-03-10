@@ -56,12 +56,17 @@ Regex helps parse tables during bulbapedia scraping only containing pokemon data
 
 Command line parser tool for simplifying the query input processing.
 
+## Sources
+- PokeAPI
+- Bulbapedia
+- PokemonDB
+
 ## Data pipeline
 PokeAPI, bulbapedia, and pokemondb data must be fetched before `merge.py` can be executed. The order largely does not matter for the pokemon data from the web.
 
-**However** color analysis is done specifically on pokemondb data, so that data must be fetched before doing color analysis.
+**However** color analysis is done specifically on pokemondb image data, so that data must be fetched before doing color analysis. This was done only on the main official image for each Pokemon, since doing color analysis on each image was proving to be too intensive (but could be done by another user if required).
 
-`query.py` likewise can only be run after data has been collected.
+`query.py` likewise can only be run after all data has been collected and is available in merge.json.
 
 ## The Data
 * Type
@@ -84,3 +89,9 @@ print(query(color="blue", types=['Fairy', 'Steel']))
 ### Execute in CLI
 
 `python poke_query.py --name=pikachu`
+
+
+### Some notes
+- Currently, Shape data for the Pokemon after index 808 is missing, since that is pulled from PokeAPI and they have accidentally wiped it. In future runs, this data will most likely be back.
+- Color analysis was not done on all images due to a timing constraint, but if needed someone could do this themselves.
+- If any ML is wanting to be done on this data, it might not be enough. Most likely, will need to pull from additional sources in the future (such as Serebii, Pokemon.com and more)
