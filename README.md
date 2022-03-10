@@ -91,7 +91,7 @@ print(query(color="blue", types=['Fairy', 'Steel']))
 `python poke_query.py --name=pikachu`
 
 
-### Some notes
+## Some notes
 - Currently, Shape data for the Pokemon after index 808 is missing, since that is pulled from PokeAPI and they have accidentally wiped it. In future runs, this data will most likely be back.
 - Color analysis was not done on all images due to a timing constraint, but if needed someone could do this themselves.
 - If any ML is wanting to be done on this data, it might not be enough. Most likely, will need to pull from additional sources in the future (such as Serebii, Pokemon.com and more)
