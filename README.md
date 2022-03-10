@@ -18,6 +18,14 @@ For representing html table data to convert to json. Used in bulbapedia scraping
 
 For modifying image data during color parsing. We reshape scraped images and convert to RGB color space.
 
+**scikit-learn**
+
+We use k-Means clustering algorithm to find the top colors of a pokemon image, provided by the scikit learn library.
+
+**numpy**
+
+For representing image data as higher performance arrays during image decoding and color picking.
+
 **beautifulsoup4**
 
 For scraping all relevant data from each of our data sources.
@@ -44,6 +52,10 @@ Timing the runner provides additional insight during runs for the data scraping 
 
 Regex helps parse tables during bulbapedia scraping only containing pokemon data.
 
+**getopt**
+
+Command line parser tool for simplifying the query input processing.
+
 ## Data pipeline
 PokeAPI, bulbapedia, and pokemondb data must be fetched before `merge.py` can be executed. The order largely does not matter for the pokemon data from the web.
 
@@ -62,7 +74,13 @@ PokeAPI, bulbapedia, and pokemondb data must be fetched before `merge.py` can be
 ## Querying the data
 Prerequisite: run `run.py`:
 
+### Import the module
+
 ```.py
-from query import query
+from poke_query import query
 print(query(color="blue", types=['Fairy', 'Steel']))
 ```
+
+### Execute in CLI
+
+`python poke_query.py --name=pikachu`
