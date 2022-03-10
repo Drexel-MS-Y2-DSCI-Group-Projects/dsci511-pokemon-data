@@ -1,3 +1,8 @@
+# Ignore .py files converted from .ipynb during runner process
+bulbapedia/bulbapedia.py
+pokeAPI/pokeAPI.py
+pokemondb/pokemondb_fetch.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

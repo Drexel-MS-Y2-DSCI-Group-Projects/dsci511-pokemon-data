@@ -1,0 +1,6 @@
+opencv-python
+pandas
+beautifulsoup4
+lxml
+scikit-learn
+numpy
